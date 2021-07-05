@@ -31,7 +31,7 @@ async function initEditor(parameters = { selector, releaseID, language, withColl
         toolbar: [
             'undo', 'redo', '|', 'heading', '|', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'removeFormat', '|',
             'link', '|', 'indent', 'outdent', '|', 'alignment:left', 'alignment:right', 'alignment:center', 'alignment:justify', '|',
-            'bulletedList', 'numberedList', '|', 'imageInsert', 'mediaEmbed', '|', 'fullscreen', '|',
+            'bulletedList', 'numberedList', '|', 'imageInsert', 'insertImage', 'mediaEmbed', '|', 'fullscreen', '|',
             'pageBreak', '|', 'specialCharacters', '|', 'insertTable', '|', 'tableUnderline', 'cft', 'clearContent'
         ],
         language: 'en',

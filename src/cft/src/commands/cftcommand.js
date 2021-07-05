@@ -57,7 +57,7 @@ export default class CFTCommand extends Command {
       }).then(response => {
         if (response.status === 200) {
           console.warn("cft completed");
-          response.text().then(responseText => {
+            response.text().then(responseText => {
             if (responseText.length > 0) {
               editor.model.change(writer => {
                 const viewFragment = editor.data.processor.toView(responseText);

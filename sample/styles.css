@@ -233,3 +233,25 @@ footer {
 .ck-balloon-rotator__content {
 	--ck-color-text: hsl(0, 0%, 0%) !important;
 }
+.modal{
+	background: #000000ad;
+}
+.modal-dialog {
+	max-width: 1040px;
+	margin: 1.75rem auto;
+}
+.modal-dialog .thumb{
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+.selected-block{
+	width: 100%;
+	height: 150px;
+	background: #dad9d9;
+}
+.selected-block .img-selected{
+	max-width: 400px;
+	height: 100%;
+	margin: 0 auto;
+	display: block;
+}

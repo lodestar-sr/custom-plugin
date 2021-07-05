@@ -58,9 +58,12 @@ import PresenceList from '@ckeditor/ckeditor5-real-time-collaboration/src/presen
 import CFT from "./cft/src/cft";
 import ConvertDivTag from "./convert_div_tag/cdt";
 import FullScreen from "./fullscreen/FullScreen";
+import InsertImage from "./insert_image/InsertImage";
 import EnableCustomDataProcessor from "./enable_custom_data_processor/enable_custom_data_processor";
 
 export default class Editor extends ClassicEditor {}
+
+
 
 // Plugins to include in the build.
 Editor.builtinPlugins = [
@@ -120,7 +123,8 @@ Editor.builtinPlugins = [
   PresenceList,
   FontFamily,
   FontBackgroundColor,
-  EditorWatchdog
+  EditorWatchdog,
+  InsertImage
 ];
 
 function SpecialCharactersCustomized(editor) {
