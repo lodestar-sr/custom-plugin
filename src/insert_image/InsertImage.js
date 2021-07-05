@@ -27,7 +27,6 @@ export default class InsertImage extends Plugin {
                 }).then(response => {
                     let selectedImage = '';
                     let selectedCat = 'all';
-                    let _this = this;
                     if (response.status === 200) {
 
                         let html = '';
@@ -107,7 +106,7 @@ export default class InsertImage extends Plugin {
                 $('#myModal').show();
                 $('body').addClass('modal-open');
                 $("#cancle").click(function(){$('#myModal').hide();$('body').removeClass('modal-open');});
-
+                let _this = this;
                 $("#content").on("click", ".add-image", function(e){
                     $('.selected-block').html('<img class="img-selected" src="'+$(this).data('path')+'" alt="Another alt text">');
                     _this.selectedImage = $(this).data('path');
@@ -116,7 +115,6 @@ export default class InsertImage extends Plugin {
                     let x = $(this).data('value');
                     $('.cat').hide();
                     $('.'+x).show();
-                    _this.selectedCat = x;
                     if(x == 'all')
                         $('.cat').show();
                 });
