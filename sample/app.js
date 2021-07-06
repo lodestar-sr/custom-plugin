@@ -32,7 +32,8 @@ async function initEditor(parameters = { selector, releaseID, language, withColl
             'undo', 'redo', '|', 'heading', '|', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'removeFormat', '|',
             'link', '|', 'indent', 'outdent', '|', 'alignment:left', 'alignment:right', 'alignment:center', 'alignment:justify', '|',
             'bulletedList', 'numberedList', '|', 'imageInsert', 'insertImage', 'mediaEmbed', '|', 'fullscreen', '|',
-            'pageBreak', '|', 'specialCharacters', '|', 'insertTable', '|', 'tableUnderline', 'cft', 'clearContent'
+            'pageBreak', '|', 'specialCharacters', '|', 'insertTable', '|', 'tableUnderline', '' +
+            '', 'clearContent'
         ],
         language: 'en',
         image: {
@@ -44,6 +45,7 @@ async function initEditor(parameters = { selector, releaseID, language, withColl
                 'comment'
             ]
         },
+        insertImagesUrl: 'http://localhost:3000/client/assetManager/categories',
         table: {
             contentToolbar: [
                 'tableColumn',

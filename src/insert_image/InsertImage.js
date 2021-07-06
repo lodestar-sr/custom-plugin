@@ -22,7 +22,7 @@ export default class InsertImage extends Plugin {
 
             // Callback executed once the image is clicked.
             view.on( 'execute', () => {
-                fetch('http://localhost:3000/client/assetManager/categories', {
+                fetch(editor.config._config.insertImagesUrl, {
                     method: 'get'
                 }).then(response => {
                     let selectedImage = '';
@@ -52,7 +52,7 @@ export default class InsertImage extends Plugin {
                 }).catch(err => {
                     console.log(err);
                 });
-                $('body').append("<div class=\"modal\" id='myModal' tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModal\" aria-hidden=\"true\">\n" +
+                $('body').append("<div class=\"modal\" id='insertimageModel' tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"insertimageModel\" aria-hidden=\"true\">\n" +
                     "<div class=\"modal-dialog\" role=\"document\">\n" +
                     "   <div class=\"modal-content\">\n" +
                     "     <div class=\"modal-header\">\n" +
@@ -93,18 +93,20 @@ export default class InsertImage extends Plugin {
                     "</div>\n" +
                     "<div class=\"modal-footer\">\n" +
                     "     <button type=\"button\" id='cancle2'  class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n" +
-                    "        <button type=\"button\" id='hide' class=\"btn btn-primary\">Add to Editor</button>\n" +
+                    "        <button type=\"button\" id='hide' class=\"btn btn-primary\" disabled>Add to Editor</button>\n" +
                     "</div>\n" +
                     "</div>\n" +
                     "</div>\n" +
                     "</div>")
-                $('#myModal').show();
+                $('#insertimageModel').show();
                 $('body').addClass('modal-open');
-                $("#cancle,#cancle2").click(function(){$('#myModal').hide();$('body').removeClass('modal-open');});
+                $("#cancle,#cancle2").click(function(){$('#insertimageModel').hide();$('body').removeClass('modal-open');});
                 let _this = this;
                 $("#content").on("click", ".add-image", function(e){
                     $('.selected-block').html('<img class="img-selected" src="'+$(this).data('path')+'" alt="Another alt text">');
                     _this.selectedImage = $(this).data('path');
+                    console.log(_this.selectedImage);
+                    $('#hide').prop('disabled', false);
                 });
                 $(".modal-body").on("click", ".filter-item", function(e){
                     let x = $(this).data('value');
@@ -123,7 +125,7 @@ export default class InsertImage extends Plugin {
                         } );
                     editor.model.insertContent( imageElement, editor.model.document.selection );
                     } );
-                    $('#myModal').hide();
+                    $('#insertimageModel').hide();
                     $('body').removeClass('modal-open');
                 })
             } );
