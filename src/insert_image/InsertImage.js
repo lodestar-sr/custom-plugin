@@ -32,17 +32,15 @@ export default class InsertImage extends Plugin {
                         let html = '';
                         let titles =  "<a class=\"dropdown-item filter-item\" href=\"#\" data-value='all'>Show all</a>\n";
                         response.json().then(res => {
-                            console.log(res.data);
-                            console.log(res.data[0].title);
                             for (let i = 0; i < res.data.length; i++) {
                                 let cat = "cat"+i;
                                 titles += "<a class=\"dropdown-item filter-item\" href=\"#\" data-value="+cat+">"+ res.data[i].title +"</a>\n";
                                 for (let j = 0; j < res.data[i].assets.length; j++) {
-                                html += "   <div class=\"col-lg-3 col-md-4 col-xs-6 thumb cat "+ " " +cat+" \">" +
-                                    "           <a class='add-image' data-path='" + res.data[i].assets[j].url + "' href='#'> \n" +
-                                    "            <img class=\"img-thumbnail\" src='" + res.data[i].assets[j].url + "' alt='" + res.data[i].assets[j].title + "'> \n" +
-                                    "          </a>\n" +
-                                    "        </div>\n";
+                                html += "<div class=\"col-lg-3 col-md-4 col-xs-6 thumb cat "+ " " +cat+" \">" +
+                                    "    <a class='add-image' data-path='" + res.data[i].assets[j].url + "' href='#'> \n" +
+                                    "        <img class=\"img-thumbnail\" src='" + res.data[i].assets[j].url + "' alt='" + res.data[i].assets[j].title + "'> \n" +
+                                    "    </a>\n" +
+                                    "    </div>\n";
                                 }
                             }
                             $('#title').html(titles);
@@ -55,57 +53,54 @@ export default class InsertImage extends Plugin {
                     console.log(err);
                 });
                 $('body').append("<div class=\"modal\" id='myModal' tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModal\" aria-hidden=\"true\">\n" +
-                    "  <div class=\"modal-dialog\" role=\"document\">\n" +
-                    "    <div class=\"modal-content\">\n" +
-                    "      <div class=\"modal-header\">\n" +
+                    "<div class=\"modal-dialog\" role=\"document\">\n" +
+                    "   <div class=\"modal-content\">\n" +
+                    "     <div class=\"modal-header\">\n" +
                     "        <h5 class=\"modal-title\">Select Image</h5>\n" +
                     "        <button type=\"button\" class=\"close\" id='cancle' data-dismiss=\"modal\" aria-label=\"Close\">\n" +
                     "          <span aria-hidden=\"true\">&times;</span>\n" +
                     "        </button>\n" +
                     "      </div>\n" +
-                    "   <div class=\"modal-body\">\n" +
+                    "    <div class=\"modal-body\">\n" +
                     "    <div class=\"row\">\n" +
                     "      <div class=\"col-lg-12\">\n" +
-                    "    <div class=\"row\">\n" +
-                    "        <div class=\"col-lg-6 col-md-6 col-xs-6 \">\n" +
+                    "        <div class=\"row\">\n" +
+                    "          <div class=\"col-lg-6 col-md-6 col-xs-6 \">\n" +
                     "             <div class=\"selected-block\" >\n" +
-                    "                   <img class=\"img-selected\" src=\"http://upload.wikimedia.org/wikipedia/commons/7/78/1997_Fiat_Panda.JPG\" alt=\"Another alt text\"> \n" +
+                    "                   <span>Image Preview</span> \n" +
                     "             </div> \n" +
-                    "        </div>\n" +
+                    "          </div>\n" +
                     "        <div class=\"col-lg-6 col-md-6 col-xs-6 thumb \">\n" +
-                    "     <div class=\"btn-group\">\n" +
-                    "  <button type=\"button\" class=\"btn btn-danger dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n" +
-                    "    Show all    \n" +
-                    "  </button>\n" +
-                    "  <div id='title' class=\"dropdown-menu\">\n" +
-                    "    <a class=\"dropdown-item\" href=\"#\">Geographics</a>\n" +
-                    "    <a class=\"dropdown-item\" href=\"#\">Faishonable</a>\n" +
-                    "    <div class=\"dropdown-divider\"></div>\n" +
-                    "    <a class=\"dropdown-item\" href=\"#\">Others</a>\n" +
-                    "  </div>\n" +
-                    "</div>\n" +
+                    "          <div class=\"btn-group\">\n" +
+                    "          <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n" +
+                    "              Show all    \n" +
+                    "          </button>\n" +
+                    "          <div id='title' class=\"dropdown-menu\">\n" +
+                    "             <a class=\"dropdown-item\" href=\"#\">Category 1</a>\n" +
+                    "             <a class=\"dropdown-item\" href=\"#\">Category 2</a>\n" +
+                    "             <a class=\"dropdown-item\" href=\"#\">Category 3</a>\n" +
+                    "          </div>\n" +
+                    "         </div>\n" +
                     "        </div>\n" +
                     "    </div>\n" +
                     "    <div id='content' class=\"row\">\n" +
-                    "        <div class=\"col-lg-3 col-md-4 col-xs-6 thumb \">" +
-                    "           <a  href=\"#\"> \n" +
-                    "            <img class=\"img-thumbnail\" src=\"http://upload.wikimedia.org/wikipedia/commons/7/78/1997_Fiat_Panda.JPG\" alt=\"Another alt text\"> \n" +
-                    "          </a>\n" +
+                    "        <div class=\"col-lg-12 col-md-12 col-xs-12 \">" +
+                    "           <p class=\"no-image\">No Images Found</p>\n" +
                     "        </div>\n" +
                     "     </div>\n" +
                     "   </div>\n" +
-                    "   </div>\n" +
-                    "      </div>\n" +
-                    "      <div class=\"modal-footer\">\n" +
-                    "        <button type=\"button\" id='cancle'  class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n" +
+                    "</div>\n" +
+                    "</div>\n" +
+                    "<div class=\"modal-footer\">\n" +
+                    "     <button type=\"button\" id='cancle2'  class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n" +
                     "        <button type=\"button\" id='hide' class=\"btn btn-primary\">Add to Editor</button>\n" +
-                    "      </div>\n" +
-                    "    </div>\n" +
-                    "  </div>\n" +
+                    "</div>\n" +
+                    "</div>\n" +
+                    "</div>\n" +
                     "</div>")
                 $('#myModal').show();
                 $('body').addClass('modal-open');
-                $("#cancle").click(function(){$('#myModal').hide();$('body').removeClass('modal-open');});
+                $("#cancle,#cancle2").click(function(){$('#myModal').hide();$('body').removeClass('modal-open');});
                 let _this = this;
                 $("#content").on("click", ".add-image", function(e){
                     $('.selected-block').html('<img class="img-selected" src="'+$(this).data('path')+'" alt="Another alt text">');
@@ -117,6 +112,8 @@ export default class InsertImage extends Plugin {
                     $('.'+x).show();
                     if(x == 'all')
                         $('.cat').show();
+                    $(this).parents(".btn-group").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+                    $(this).parents(".btn-group").find('.btn').val(x);
                 });
 
                 $("#hide").click(function(){

@@ -250,8 +250,28 @@ footer {
 	background: #dad9d9;
 }
 .selected-block .img-selected{
-	max-width: 400px;
+	max-width: 100%;
 	height: 100%;
 	margin: 0 auto;
 	display: block;
+}
+.selected-block span{
+    font-size: 21px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    top: 40%;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: block;
+}
+#content .no-image{
+    text-align: center;
+    margin-top:15px;
+    height: 200px;
+    padding-top: 120px;
+    padding-bottom: 150px;
+    font-size: 28px;
+    border: 1px solid #dad9d9;
 }
