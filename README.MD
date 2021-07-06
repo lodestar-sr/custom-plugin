@@ -13,7 +13,7 @@ npm run build
 ```
 After build, please aware of this code in the build/ckeditor.js file.
 ```javascript
-function IA(t){return t?!![...t.getAttributeKeys()].length:0}
+function Iw(t){return t?!![...t.getAttributeKeys()].length:0}
 
 .......
 
