@@ -1,0 +1,87 @@
+
+
+#insertimageModel {
+    background: #000000ad;
+}
+
+#insertimageModel .modal-dialog {
+    max-width: 1040px;
+    margin: 1.75rem auto;
+    overflow-y: initial !important;
+}
+
+#insertimageModel .modal-dialog .thumb{
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+#insertimageModel .modal-dialog .modal-content {
+    border-radius: 1rem;
+    padding: 8px 0 8px 0;
+}
+
+#insertimageModel .modal-dialog .modal-content .modal-title {
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+#insertimageModel .modal-dialog .modal-content .modal-body {
+    margin: 0 36px 0 36px;
+    height: 72vh;
+}
+
+#insertimageModel .modal-dialog .modal-content .modal-body .content-box {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #D3D3D3;
+    border-radius: 9px;
+    background-color: #F8F8F8;
+    font-size: 16px;
+    margin-top: 16px;
+    height: calc(100% - 50px);
+}
+
+#insertimageModel .selected-block{
+    width: 100%;
+    height: 150px;
+    background-color: #dad9d9;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#insertimageModel .selected-block .img-selected{
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+#insertimageModel .selected-block span{
+    font-size: 21px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    top: 40%;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: block;
+}
+
+#insertimageModel #content {
+    height: calc(100% - 164px);
+    overflow-y: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+#insertimageModel #content .no-image{
+    text-align: center;
+    margin-top:15px;
+    height: 200px;
+    padding-top: 120px;
+    padding-bottom: 150px;
+    font-size: 28px;
+    border: 1px solid #dad9d9;
+}

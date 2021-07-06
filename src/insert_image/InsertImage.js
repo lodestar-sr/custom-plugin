@@ -1,11 +1,9 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
-import Swal from 'sweetalert2/dist/sweetalert2.js';
 import $ from "jquery";
 
-import 'sweetalert2/dist/sweetalert2.css';
-
+import './css/style.css';
 
 export default class InsertImage extends Plugin {
     init() {
@@ -62,15 +60,15 @@ export default class InsertImage extends Plugin {
                     "        </button>\n" +
                     "      </div>\n" +
                     "    <div class=\"modal-body\">\n" +
-                    "    <div class=\"row\">\n" +
-                    "      <div class=\"col-lg-12\">\n" +
+                    "    <div class=\"row h-100\">\n" +
+                    "      <div class=\"col-lg-12 h-100\">\n" +
                     "        <div class=\"row\">\n" +
                     "          <div class=\"col-lg-6 col-md-6 col-xs-6 \">\n" +
                     "             <div class=\"selected-block\" >\n" +
                     "                   <span>Image Preview</span> \n" +
                     "             </div> \n" +
                     "          </div>\n" +
-                    "        <div class=\"col-lg-6 col-md-6 col-xs-6 thumb \">\n" +
+                    "        <div class=\"col-lg-6 col-md-6 col-xs-6 thumb\">\n" +
                     "          <div class=\"btn-group\">\n" +
                     "          <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n" +
                     "              Show all    \n" +
@@ -103,7 +101,8 @@ export default class InsertImage extends Plugin {
                 $("#cancle,#cancle2").click(function(){$('#insertimageModel').hide();$('body').removeClass('modal-open');});
                 let _this = this;
                 $("#content").on("click", ".add-image", function(e){
-                    $('.selected-block').html('<img class="img-selected" src="'+$(this).data('path')+'" alt="Another alt text">');
+                    $('.selected-block').html('');
+                    $('.selected-block').css('background-image', `url(${$(this).data('path')})`);
                     _this.selectedImage = $(this).data('path');
                     console.log(_this.selectedImage);
                     $('#hide').prop('disabled', false);
