@@ -30,14 +30,14 @@ export default class InsertImage extends Plugin {
                     if (response.status === 200) {
 
                         let html = '';
-                        let titles =  "<a class=\"dropdown-item filter-item\" href=\"#\" data-value='all'>Show all</a>\n";
+                        let titles =  "<a class=\"dropdown-item filter-item\" href=\"javascript: void(0);\" data-value='all'>Show all</a>\n";
                         response.json().then(res => {
                             for (let i = 0; i < res.data.length; i++) {
                                 let cat = "cat"+i;
-                                titles += "<a class=\"dropdown-item filter-item\" href=\"#\" data-value="+cat+">"+ res.data[i].title +"</a>\n";
+                                titles += "<a class=\"dropdown-item filter-item\" href=\"javascript: void(0);\" data-value="+cat+">"+ res.data[i].title +"</a>\n";
                                 for (let j = 0; j < res.data[i].assets.length; j++) {
                                 html += "<div class=\"col-lg-3 col-md-4 col-xs-6 thumb cat "+ " " +cat+" \">" +
-                                    "    <a class='add-image' data-path='" + res.data[i].assets[j].url + "' href='#'> \n" +
+                                    "    <a class='add-image' data-path='" + res.data[i].assets[j].url + "' href='javascript: void(0);'> \n" +
                                     "        <img class=\"img-thumbnail\" src='" + res.data[i].assets[j].url + "' alt='" + res.data[i].assets[j].title + "'> \n" +
                                     "    </a>\n" +
                                     "    </div>\n";
@@ -76,9 +76,9 @@ export default class InsertImage extends Plugin {
                     "              Show all    \n" +
                     "          </button>\n" +
                     "          <div id='title' class=\"dropdown-menu\">\n" +
-                    "             <a class=\"dropdown-item\" href=\"#\">Category 1</a>\n" +
-                    "             <a class=\"dropdown-item\" href=\"#\">Category 2</a>\n" +
-                    "             <a class=\"dropdown-item\" href=\"#\">Category 3</a>\n" +
+                    "             <a class=\"dropdown-item\" href=\"javascript: void(0);\">Category 1</a>\n" +
+                    "             <a class=\"dropdown-item\" href=\"javascript: void(0);\">Category 2</a>\n" +
+                    "             <a class=\"dropdown-item\" href=\"javascript: void(0);\">Category 3</a>\n" +
                     "          </div>\n" +
                     "         </div>\n" +
                     "        </div>\n" +
